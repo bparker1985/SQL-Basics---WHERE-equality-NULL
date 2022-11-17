@@ -1,0 +1,82 @@
+--Basic Syntax using WHERE
+--Using Functions - = (eqaul to), <> (not equal to), >= (greater than and equal to)
+-- <, >, AND, OR, LIKE, NULL, IN
+
+SELECT *
+FROM EmployeeDemographics
+WHERE FirstName = 'DUKE'
+-- This will return only Duke
+
+SELECT *
+FROM EmployeeDemographics
+WHERE FirstName <> 'DUKE'
+-- This will return everyone except Duke
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age > 30
+-- This will return everyone who is over 30
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age >= 30
+-- This returns everyone that is 30 and over
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age < 32
+-- This returns everyone that is under the age of 32
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age <= 32
+-- This returns everyone that is 32 years old and under
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age <= 32 AND Gender = 'Male'
+-- This returns anyone that meets the criteria of being 32 or under AND is male.
+-- In order to get a return with AND, the target must meet both criteria
+
+SELECT *
+FROM EmployeeDemographics
+WHERE Age <= 32 OR Gender = 'Male'
+-- This returns anyone that meets either of the conditions
+-- In order to get a return the target must meet one of the two criteria
+
+SELECT *
+FROM EmployeeDemographics
+WHERE LastName LIKE 'R%'
+-- This returns anyone whose last name starts with R
+-- LIKE is usually used with string or text data
+-- The % is a wildcard
+
+SELECT *
+FROM EmployeeDemographics
+WHERE LastName LIKE '%R%'
+-- This will return anyone that has an s anywhere in their name
+
+SELECT *
+FROM EmployeeDemographics
+WHERE LastName LIKE 'R%u%'
+-- This only returns names that has an R at the beginning and then somwhere else int eh name also has a u
+
+SELECT *
+FROM EmployeeDemographics
+WHERE LastName LIKE 'R%u%f%'
+-- Nothing is returned now becasue the target letters are followed in order and no one has a name that follows this order
+
+SELECT *
+FROM EmployeeDemographics
+WHERE FirstName IS NULL
+-- This doesn't return anything becasue there are no NULL values in the column
+
+SELECT *
+FROM EmployeeDemographics
+WHERE FirstName IS NOT NULL
+-- This returns every name in the column
+
+SELECT *
+FROM EmployeeDemographics
+WHERE FirstName IN ('Duke', 'Tom')
+-- IN is like the equals statement, but it has multiple conditions
